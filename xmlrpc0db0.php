@@ -2,13 +2,13 @@
 	<service>
 		<engineName>WordPress</engineName>
 		<engineLink>https://wordpress.org/</engineLink>
-		<homePageLink>https://www.cloudbeys.com/sabi</homePageLink>
+		<homePageLink>https://www.cloudbeys.com/wptest</homePageLink>
 		<apis>
-			<api name="WordPress" blogID="1" preferred="true" apiLink="https://www.cloudbeys.com/sabi/xmlrpc.php" />
-			<api name="Movable Type" blogID="1" preferred="false" apiLink="https://www.cloudbeys.com/sabi/xmlrpc.php" />
-			<api name="MetaWeblog" blogID="1" preferred="false" apiLink="https://www.cloudbeys.com/sabi/xmlrpc.php" />
-			<api name="Blogger" blogID="1" preferred="false" apiLink="https://www.cloudbeys.com/sabi/xmlrpc.php" />
-				<api name="WP-API" blogID="1" preferred="false" apiLink="https://www.cloudbeys.com/sabi/wp-json/" />
+			<api name="WordPress" blogID="1" preferred="true" apiLink="https://www.cloudbeys.com/wptest/xmlrpc.php" />
+			<api name="Movable Type" blogID="1" preferred="false" apiLink="https://www.cloudbeys.com/wptest/xmlrpc.php" />
+			<api name="MetaWeblog" blogID="1" preferred="false" apiLink="https://www.cloudbeys.com/wptest/xmlrpc.php" />
+			<api name="Blogger" blogID="1" preferred="false" apiLink="https://www.cloudbeys.com/wptest/xmlrpc.php" />
+				<api name="WP-API" blogID="1" preferred="false" apiLink="https://www.cloudbeys.com/wptest/index.php/wp-json/" />
 			</apis>
 	</service>
 </rsd>
