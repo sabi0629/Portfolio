@@ -718,24 +718,148 @@ margin-top: 20px;
 			<section class="widget-container aux-widget-contact-form aux-parent-aub9c22d77" style="" >            <div class="aux-col-wrapper aux-no-gutter">
             <!-- @TODO - The output for element here -->
 
-            <div role="form" class="wpcf7" id="wpcf7-f59-p60-o1" lang="en-US" dir="ltr">
-<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
-<form action="https://www.cloudbeys.com/wptest/index.php/contact/#wpcf7-f59-p60-o1" method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init">
-<div style="display: none;">
-<input type="hidden" name="_wpcf7" value="59" />
-<input type="hidden" name="_wpcf7_version" value="5.5.6" />
-<input type="hidden" name="_wpcf7_locale" value="en_US" />
-<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f59-p60-o1" />
-<input type="hidden" name="_wpcf7_container_post" value="60" />
-<input type="hidden" name="_wpcf7_posted_data_hash" value="" />
-</div>
-<div class="contact-form">
-<div class="contact-form__column">
-    <input type="text" name="field1" class="field-long-1" id="right" placeholder="Full Name" /><input type="email" name="field2" class="field-long-1" id="left" placeholder="Email" /> </div>
-<p> <textarea name="field1" id="field1" class="field-textarea-1" placeholder="Message *" ></textarea><input type="submit" value="Send To Me" /></p>
-</div>
-<div class="wpcf7-response-output" aria-hidden="true"></div></form></div>
-
+        <center>
+			<form class="gform pure-form pure-form-stacked" method="POST" data-email="mahikhankijan@gmail.com"
+			action="https://script.google.com/macros/s/AKfycbxXmeSHu9tAIdPCQhSbxxvZJZC1hDveMX31j_qA7dstyJLkZ0h8etm5MyQEgv44n8-p/exec">
+			  <div class="form-elements"><br>
+				<div style="background:none; width: 400px;padding-top: 15px;padding-bottom: 40px;padding-left: 20px;padding-right: 20px;"><br>
+				  <b class="content-head" style="font-size: 2.3em; color: #ffffff;">Contact Us!</b>
+				  <br><br>
+				   
+				  <input type="text" name="name" placeholder="Full Name" required="" style="font-size: 1em;width: 300px;"/><br><br>
+		  
+				  
+				  <input type="email" name="email" placeholder="Email" required="" style="font-size: 1em;width: 300px;"/><br><br>
+		  
+				  
+				
+				  
+				  <textarea  name="message" placeholder="Message" rows="5" cols="22" required="" style="font-size: 1.3em;width: 300px;"></textarea><br><br>
+			  
+				  <button  style="border-radius: 20px; background-color: #FEC81C;">
+				  Submit</button><br>
+				</div>
+			  </div>
+			</center>
+			  <!-- Thankyou_message --><br>
+			  <div class="thankyou_message" style=" background:none; color: white; width: 400px;padding-top: 15px;padding-bottom: 40px;padding-left: 20px;padding-right: 20px;"><br><br>
+				<h1>Thanks for contacting Me!</h1>
+				<h1>*******</h1>
+			  </div>
+			</form>
+		  </div>
+	
+				<script data-cfasync="false" type="text/javascript">
+    
+					(function() {
+				   function validEmail(email) {
+					 var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+					 return re.test(email);
+				   }
+				 
+				   function validateHuman(honeypot) {
+					 if (honeypot) {
+					   console.log("Robot Detected!");
+					   return true;
+					 } else {
+					   console.log("Welcome Human!");
+					 }
+				   }
+				   function getFormData(form) {
+					 var elements = form.elements;
+				 
+					 var fields = Object.keys(elements).filter(function(k) {
+						   return (elements[k].name !== "honeypot");
+					 }).map(function(k) {
+					   if(elements[k].name !== undefined) {
+						 return elements[k].name;
+					   }else if(elements[k].length > 0){
+						 return elements[k].item(0).name;
+					   }
+					 }).filter(function(item, pos, self) {
+					   return self.indexOf(item) == pos && item;
+					 });
+				 
+					 var formData = {};
+					 fields.forEach(function(name){
+					   var element = elements[name];
+					   formData[name] = element.value;
+					   if (element.length) {
+						 var data = [];
+						 for (var i = 0; i < element.length; i++) {
+						   var item = element.item(i);
+						   if (item.checked || item.selected) {
+							 data.push(item.value);
+						   }
+						 }
+						 formData[name] = data.join(', ');
+					   }
+					 });
+				 
+					 // add form-specific values into the data
+					 formData.formDataNameOrder = JSON.stringify(fields);
+					 formData.formGoogleSheetName = form.dataset.sheet || "Sabir"; // default sheet name
+					 formData.formGoogleSendEmail = form.dataset.email || ""; // no email by default
+				 
+					 console.log(formData);
+					 return formData;
+				   }
+				 
+				   function handleFormSubmit(event) {  
+					 event.preventDefault();           
+					 var form = event.target;
+					 var data = getFormData(form);         
+					 if( data.email && !validEmail(data.email) ) {   
+					   var invalidEmail = form.querySelector(".email-invalid");
+					   if (invalidEmail) {
+						 invalidEmail.style.display = "block";
+						 return false;
+					   }
+					 } else {
+					   disableAllButtons(form);
+					   var url = form.action;
+					   var xhr = new XMLHttpRequest();
+					   xhr.open('POST', url);
+					   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					   xhr.onreadystatechange = function() {
+						   console.log(xhr.status, xhr.statusText);
+						   console.log(xhr.responseText);
+						   var formElements = form.querySelector(".form-elements")
+						   if (formElements) {
+							 formElements.style.display = "none"; // hide form
+						   }
+						   var thankYouMessage = form.querySelector(".thankyou_message");
+						   if (thankYouMessage) {
+							 thankYouMessage.style.display = "block";
+						   }
+						   return;
+					   };
+					   var encoded = Object.keys(data).map(function(k) {
+						   return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+					   }).join('&');
+					   xhr.send(encoded);
+					 }
+				   }
+				   
+				   function loaded() {
+					 console.log("Contact form submission handler loaded successfully.");
+					 var forms = document.querySelectorAll("form.gform");
+					 for (var i = 0; i < forms.length; i++) {
+					   forms[i].addEventListener("submit", handleFormSubmit, false);
+					 }
+				   };
+				   document.addEventListener("DOMContentLoaded", loaded, false);
+				 
+				   function disableAllButtons(form) {
+					 var buttons = form.querySelectorAll("button");
+					 for (var i = 0; i < buttons.length; i++) {
+					   buttons[i].disabled = true;
+					 }
+				   }
+				 })();
+				 
+				 
+				   </script>
             </div><!-- aux-col-wrapper -->
     </section><!-- widget-container -->		</div>
 				</div>
